@@ -10,5 +10,9 @@ object Main {
     var ver1 = new Vertex(ar1)
     var ver2 = new Vertex(ar2)
     var ed1 = new Edge(ver1, ver2)
+    val in = scala.io.Source.fromURL("http://www.google.pl/",
+      "utf-8")
+    for (line <- in.getLines)
+      println(line)
   }
 }
