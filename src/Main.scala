@@ -4,5 +4,6 @@
 object Main {
   def main (args: Array[String]) {
     println("fdgdsgsdsdsad")
+    println("gdsgifgfid")
   }
 }
