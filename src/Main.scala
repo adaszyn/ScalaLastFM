@@ -6,13 +6,9 @@ import Music._
 object Main {
   def main (args: Array[String]) {
     var ar1 = new Artist("artist1")
-    var ar2 = new Artist("artist2")
-    var ver1 = new Vertex(ar1)
-    var ver2 = new Vertex(ar2)
-    var ed1 = new Edge(ver1, ver2)
-    val in = scala.io.Source.fromURL("http://www.google.pl/",
-      "utf-8")
-    for (line <- in.getLines)
-      println(line)
+    var ar2 = new Artist("abba")
+    ar2.getInfo()
+
+
   }
 }
