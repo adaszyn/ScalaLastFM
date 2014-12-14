@@ -1,5 +1,6 @@
 package Music
 
+import scala.collection.JavaConverters._
 import scala.collection.mutable.ArrayBuffer
 import scala.io.{Codec, Source}
 import scala.xml.XML
@@ -18,25 +19,28 @@ object InfoGetter {
     mbid = mbid.slice(6, mbid.length - 7)
     mbid
   }
-  def getURL(name: String):String = {
-    val html = Source.fromURL("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+name.replaceAll(" ", "%20")+"&api_key=3723f4ce9e123e46cff24251666d761a")(Codec.ISO8859)
+
+  def getURL(name: String): String = {
+    val html = Source.fromURL("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + name.replaceAll(" ", "%20") + "&api_key=3723f4ce9e123e46cff24251666d761a")(Codec.ISO8859)
     val s = html.mkString
     val obj = XML.loadString(s)
     val art = obj \ "artist"
     var url = (art \ "url").toString
-    url = url.slice(5, url.length-6)
+    url = url.slice(5, url.length - 6)
     url
   }
-  def getTags(name: String):ArrayBuffer[String] = {
-    val html = Source.fromURL("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+name.replaceAll(" ", "%20")+"&api_key=3723f4ce9e123e46cff24251666d761a")(Codec.ISO8859)
+
+  def getTags(name: String): ArrayBuffer[String] = {
+    val html = Source.fromURL("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + name.replaceAll(" ", "%20") + "&api_key=3723f4ce9e123e46cff24251666d761a")(Codec.ISO8859)
     val s = html.mkString
     val obj = XML.loadString(s)
     var tags = ArrayBuffer[String]()
-    for( art <- obj \\ "tag"){
-      var tmp=(art \ "name").toString
-      tmp= tmp.slice(6, tmp.length-7)
-      tags+=tmp
+    for (art <- obj \\ "tag") {
+      var tmp = (art \ "name").toString
+      tmp = tmp.slice(6, tmp.length - 7)
+      tags += tmp
     }
     tags
   }
+
 }

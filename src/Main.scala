@@ -6,8 +6,12 @@ import Music._
 object Main {
   def main (args: Array[String]) {
     //var ar1 = new Artist("artist1")
-    var ar2 = new Artist("Red Hot Chili Peppers")
-    ar2.getInfo()
+    var ar2 = new Artist("Scorpions")
+    //ar2.getInfo()
+    for(artist<-ar2.getSimilars()){
+      artist.getInfo()
+    }
+
 
   }
 }
