@@ -5,13 +5,11 @@ import Graph._
 import Music._
 object Main {
   def main (args: Array[String]) {
-    //var ar1 = new Artist("artist1")
-    var ar2 = new Artist("Scorpions")
-    //ar2.getInfo()
-    for(artist<-ar2.getSimilars()){
-      artist.getInfo()
-    }
 
-
+    var g = new Graph()
+    var ar1 = new Artist("Scorpions")
+    var ar2 = new Artist("50 cent")
+    var e = ar1.connect(ar2)
+    print(e)
   }
 }
