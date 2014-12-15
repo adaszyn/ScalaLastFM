@@ -9,4 +9,5 @@ trait Node {
   def getWeight(): Int
   def connect(node : Node): Edge
   def getID():String
+  def ==(obj :Node): Boolean
 }

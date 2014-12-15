@@ -45,4 +45,8 @@ class Artist (val name: String, val mbid: String, val url: String, val tags: Arr
   override def getWeight(): Int = 0
 
   override def getID(): String = name.replaceAll(" ", "%20").toLowerCase
+
+  override def ==(that: Node): Boolean = {
+     (getID()==that.getID())
+  }
 }
