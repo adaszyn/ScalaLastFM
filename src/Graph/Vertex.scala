@@ -6,3 +6,4 @@ package Graph
 class Vertex(val value: Node) {
 
 }
+
