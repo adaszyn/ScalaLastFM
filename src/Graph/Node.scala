@@ -5,7 +5,8 @@ package Graph
  */
 import scala.collection.mutable.ArrayBuffer
 trait Node {
-def getNeighbours(): ArrayBuffer[Node]
-def getWeight(): Int
+  def getNeighbours(): ArrayBuffer[Node]
+  def getWeight(): Int
   def connect(node : Node): Edge
+  def getID():String
 }

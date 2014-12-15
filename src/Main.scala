@@ -7,9 +7,8 @@ object Main {
   def main (args: Array[String]) {
 
     var g = new Graph()
-    var ar1 = new Artist("Scorpions")
-    var ar2 = new Artist("50 cent")
-    var e = ar1.connect(ar2)
-    print(e)
+    var ar2 = new Artist("Cher")
+    ar2.getInfo()
+    println(ar2.getSimilars(10))
   }
 }
