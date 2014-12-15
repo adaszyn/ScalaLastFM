@@ -41,4 +41,15 @@ object InfoGetter {
     }
     tags
   }
+  def getSimilars(name: String): ArrayBuffer[String] = {
+    val s = Source.fromURL("http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist="+name.replaceAll(" ", "%20")+"&api_key=3723f4ce9e123e46cff24251666d761a")(Codec.ISO8859).mkString
+    val obj = XML.loadString(s)
+    var similar = ArrayBuffer[String]()
+    for (art <- obj \\ "artist" ) {
+      var tmp = (art \ "name").toString
+      tmp = tmp.slice(6, tmp.length - 7)
+      similar += tmp
+    }
+    similar
+  }
 }
