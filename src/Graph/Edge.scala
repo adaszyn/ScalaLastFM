@@ -13,7 +13,7 @@ def == (e: Edge)={
 
 }
 object Edge{
-  def apply(node1: Node, node2: Node)={
-  new Edge(node1, node2)
-}
+    def apply(node1: Node, node2: Node)={
+      new Edge(node1, node2)
+  }
 }

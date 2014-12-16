@@ -9,5 +9,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="scala-sdk-2.11.4" level="application" />
     <orderEntry type="library" name="scala-xml_2.11-1.0.2" level="project" />
+    <orderEntry type="library" name="scalatest_2.11-2.2.1" level="project" />
+    <orderEntry type="library" name="scalamock-core_2.10-3.2" level="project" />
+    <orderEntry type="library" name="scalamock-core_2.9.0-2.3" level="project" />
+    <orderEntry type="library" name="mockito-all-1.9.5" level="project" />
   </component>
 </module>
