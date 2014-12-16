@@ -7,9 +7,9 @@ package Music
 import scala.collection.mutable.ArrayBuffer
 import scala.io.{Codec, Source}
 import scala.xml.XML
-import Graph.{Edge, Node}
+import Graph.{Vertex, Edge}
 
-class Artist (val name: String, val mbid: String, val url: String, val tags: ArrayBuffer[String], val Similars: ArrayBuffer[String]) extends Node{
+class Artist (val name: String, val mbid: String, val url: String, val tags: ArrayBuffer[String], val Similars: ArrayBuffer[String]) extends Vertex{
 
 
   def this(name: String)={
@@ -26,17 +26,17 @@ class Artist (val name: String, val mbid: String, val url: String, val tags: Arr
     println(Similars)
   }
 
-  override def getNeighbours(): ArrayBuffer[Node] = null
+  override def getNeighbours(): ArrayBuffer[Vertex] = null
 
-  override def connect(node: Node): Edge = {
-    Edge(this, node)
+  override def connect(v: Vertex): Edge = {
+    Edge(this, v)
   }
 
   override def getWeight(): Int = 0
 
   override def getID(): String = name
 
-  override def ==(that: Node): Boolean = {
+  override def ==(that: Vertex): Boolean = {
      (getID()==that.getID())
   }
 

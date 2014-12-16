@@ -5,7 +5,9 @@ import Graph._
 import Music._
 object Main {
   def main (args: Array[String]) {
-    val ar1 = new Artist("Pidżama Porno")
-    ar1.getInfo()
+    val a = new Artist("Ryszard Riedel")
+    a.getInfo()
+    val a2= new Artist("Dżem")
+    a2.getInfo()
   }
 }
