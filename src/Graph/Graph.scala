@@ -1,6 +1,7 @@
 package Graph
 
-import exceptions.VertexPresentException
+import Music.Artist
+import exceptions._
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -20,10 +21,27 @@ class Graph(seed: Vertex) {
   def isVertexPresent(name: String)= (Vertices.map((n:Vertex)=>(n.getID() == name))).reduce((v1, v2)=>v1||v2)
 
   def getVertex(name: String)={
-    for (v<-Vertices if v.getID() == name) v
+    var vert: Vertex = null
+    if(!isVertexPresent(name)) throw new VertexNotFoundException("W grafie nie ma wierzcholka o nazwie: "+name)
+    for (v<-Vertices) {
+      if (v.getID() == name) vert = v
+    }
+    vert
   }
-  def extend(number: Int) ={
-  null
+  def extend(v:Vertex, number: Int) ={
+    var amount: Int = 0
+    var counter: Int = 0
+    val sim = v.getSimilars()
+    while(amount < number && counter < sim.length) {
+      if (!isVertexPresent(sim(counter))) {
+        val vert = new Artist(sim(counter))
+        Vertices += vert
+        Edges+= new Edge(v, vert )
+        amount+=1
+      }
+      counter+=1
+    }
+    if(amount!=number) throw new NotEnoughSimilarsException("Nie mozna dodac az tylu podobnych")
   }
   def getSimilarsInGraph(v: Vertex): ArrayBuffer[Vertex]={
     var res = ArrayBuffer[Vertex]()

@@ -3,7 +3,7 @@
  */
 import Graph._
 import Music._
-import exceptions.VertexPresentException
+import exceptions._
 
 object Main {
   def main (args: Array[String]) {
