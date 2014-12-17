@@ -40,4 +40,5 @@ class Artist (val name: String, val mbid: String, val url: String, val tags: Arr
      (getID()==that.getID())
   }
 
+  override def getSimilars(): ArrayBuffer[String] = Similars
 }

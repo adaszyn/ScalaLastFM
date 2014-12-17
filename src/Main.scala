@@ -3,11 +3,10 @@
  */
 import Graph._
 import Music._
+import exceptions.VertexPresentException
+
 object Main {
   def main (args: Array[String]) {
-    val a = new Artist("Ryszard Riedel")
-    a.getInfo()
-    val a2= new Artist("Dżem")
-    a2.getInfo()
+
   }
 }

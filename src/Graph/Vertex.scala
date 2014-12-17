@@ -15,4 +15,6 @@ trait Vertex {
 
   def ==(obj: Vertex): Boolean
 
+  def getSimilars():ArrayBuffer[String]
+
 }

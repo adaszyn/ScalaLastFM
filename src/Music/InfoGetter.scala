@@ -12,6 +12,7 @@ import scala.xml.XML
 object InfoGetter {
   def getMBID(name: String): String = {
     val obj = InfoGetter.createSource(name)
+    println(obj \ "lfm" \ "error")
     val art = obj \ "artist"
     var mbid = ((art \ "mbid").toString)
     mbid = mbid.slice(6, mbid.length - 7)
@@ -25,7 +26,7 @@ object InfoGetter {
     url = url.slice(5, url.length - 6)
     url
   }
-  def createSource(name: String)={
+  def createSource(name: String) = {
     val s = Source.fromURL("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + name.replaceAll(" ", "%20") + "&api_key=3723f4ce9e123e46cff24251666d761a")(Codec.ISO8859).mkString
     val obj = XML.loadString(s)
     obj

@@ -1,8 +1,8 @@
 package Test
 
 /**
- * Created by wojciech on 15.12.14.
- */
+* Created by wojciech on 15.12.14.
+*/
 import org.scalatest._
 import org.mockito._
 import org.scalatest.mock.MockitoSugar
